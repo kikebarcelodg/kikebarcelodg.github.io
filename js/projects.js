@@ -289,5 +289,27 @@ window.PROJECTS = [
   "color": "#007f72",
   "ink": "#fff",
   "feat": false
+ } ,
+ {
+  "slug": "ro-lashes-studio",
+  "name": "Ro Lashes Studio",
+  "client": "Ro Lashes Studio",
+  "tags": [],
+  "tasks": [],
+  "desc": "",
+  "color": "#99253d",
+  "ink": "#fff",
+  "feat": false
+ },
+ {
+  "slug": "pickle-and-mix",
+  "name": "Pickle&Mix",
+  "client": "Pickle&Mix",
+  "tags": [],
+  "tasks": [],
+  "desc": "",
+  "color": "#d4f34e",
+  "ink": "#000",
+  "feat": false
  }
 ];

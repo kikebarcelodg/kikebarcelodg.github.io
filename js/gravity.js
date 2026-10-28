@@ -1,5 +1,6 @@
 /* Portada: al hacer click en "Kike Barceló" las letras caen con gravedad,
    chocan entre sí y se pueden arrastrar con el ratón o el dedo.
+   Caen solas a los 4 s de entrar (o al hacer click) y se pueden recolocar con el botón.
    Usa Matter.js (se carga en index.html). Si no carga, el título queda como está. */
 (function () {
   var h1 = document.querySelector('.hero h1');
@@ -15,16 +16,19 @@
     line.innerHTML = txt.split('').map(function (c) { return '<i class="ch">' + c + '</i>'; }).join('');
   });
 
-  var M = window.Matter, armed = false, fallen = false;
+  var M = window.Matter, armed = false, fallen = false, touched = false;
   var engine, items = [], drags = {}, raf = 0, last = 0, acc = 0, running = false, resetBtn;
   var STEP = 1000 / 60;
 
   // Esperamos a que termine la animación de entrada del título
   setTimeout(function () { armed = true; if (M) h1.classList.add('can-fall'); }, 1500);
   h1.addEventListener('click', function () { if (armed && !fallen && M) fall(); });
+  // A los 4 s de entrar, las letras caen solas (una sola vez; si ya cayeron o se recolocaron, no se repite)
+  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+  setTimeout(function () { if (M && !touched && !fallen && !calm) fall(); }, 4000);
 
   function fall() {
-    fallen = true;
+    fallen = true; touched = true;
     h1.classList.remove('can-fall'); h1.classList.add('fallen');
     var sx = window.scrollX, sy = window.scrollY;
     var cs = getComputedStyle(h1), size = parseFloat(cs.fontSize);

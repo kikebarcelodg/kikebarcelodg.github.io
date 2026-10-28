@@ -14,7 +14,6 @@ window.PROJECTS.forEach(p => {
   const miss_p = [...refs].filter(r => !exact(`img/proyectos/${p.slug}/${r}.jpg`));
   ok += refs.size - miss_p.length;
   if (miss_p.length) miss.push(`${p.name} (${p.slug}): faltan ${miss_p.map(r => r + '.jpg').join(', ')}`);
-  if (!exact(`proyectos/${p.slug}.html`)) miss.push(`${p.slug}: falta proyectos/${p.slug}.html`);
 });
 if (!exact('img/logo/k.png')) miss.push('falta img/logo/k.png');
 console.log(`Imágenes encontradas: ${ok}`);

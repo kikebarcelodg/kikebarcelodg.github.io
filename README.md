@@ -1,6 +1,7 @@
 # Portfolio Kike Barceló
 
-Web estática (HTML, CSS y JavaScript). Sin dependencias: solo Google Fonts.
+Web estática de una sola página (HTML, CSS y JavaScript). Sin dependencias: solo Google Fonts.
+Todo vive en `index.html`: al hacer click en un proyecto de la lista se despliega ahí mismo, y "Más sobre mí" también. Un proyecto se puede enlazar directamente con `#slug`, por ejemplo `/#aceites-el-nino`.
 
 ## Publicar en GitHub Pages
 1. Sube TODO el contenido de esta carpeta a la raíz del repositorio (incluido `.nojekyll`).
@@ -14,6 +15,7 @@ Guarda las imágenes de cada proyecto en `img/proyectos/<nombre-del-proyecto>/` 
 ## Qué editar
 - Textos, orden y colores de proyectos: `js/projects.js`
 - Menú y footer: `js/layout.js`
+- Despliegue de proyectos: `js/main.js` y los estilos `.proj` al final de `css/pages.css`
 - Colores y tipografías globales: `css/base.css`
 
 ## Portada interactiva
